@@ -5,3 +5,4 @@ src/datasets/AWA2/
 src/datasets/CUB200/
 src/datasets/MNIST/
 src/models/checkpoints/
+outputs/ # hydra output file creation
