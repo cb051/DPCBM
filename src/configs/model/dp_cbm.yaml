@@ -1,0 +1,22 @@
+model_name: 'DP CBM'
+train_private: True # [True,False]
+
+logging:
+  log_local: True # if false, no logging
+  local_path: 'models/checkpoints/CBM'
+  ckpt_path_name: 'dp_cbm_ckpts'
+
+
+model_args:
+  concept_loss_weight: 1
+  task_loss_weight: 1
+  lr: 1e-2
+  X2C: 'resnet34'
+  use_orthog_loss: False # [True, False] whether to train with orthogonal Loss
+  use_orthog_clipping: False # [True, False] whether to train with additional weight clipping
+
+privacy_args:
+  epsilon: 1.0 # set explictly when running experiments / training
+  delta: 1e-5 # generally small enough for all datsets used
+  max_grad_norm: 1.2
+

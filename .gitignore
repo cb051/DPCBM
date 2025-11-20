@@ -1,0 +1,7 @@
+*.tgz
+*.pth
+*.ckpt
+src/datasets/AWA2/
+src/datasets/CUB200/
+src/datasets/MNIST/
+src/models/checkpoints/

@@ -1,0 +1,12 @@
+seed: 42
+num_workers: 16
+batch_size: 128
+
+one_epoch_run: True # a sanity check [True,False]
+accelerator: 'gpu' # whether to use gpu, cpu in lightning
+devices: 1 # number of gpus the local machine has
+
+train: True # [True,False]
+test: False # [True,False]
+
+ckpt: None # run a saved checkpoint when Test = True

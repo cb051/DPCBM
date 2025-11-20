@@ -1,0 +1,4 @@
+dataset_name: 'cub200'
+num_concepts: 112
+num_classes: 200
+epochs: 200

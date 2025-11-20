@@ -1,0 +1,13 @@
+model_name: 'CBM'
+train_private: False # [True,False]
+
+logging:
+  log_local: True # if false, use wandb
+  local_path: 'models/checkpoints/CBM' # local path to save checkpoints
+  ckpt_path_name: 'cbm_ckpts' # this folder is where CEM checkpoints are saved appended with name of dataset
+
+model_args:
+  concept_loss_weight: 1
+  task_loss_weight: 1
+  lr: 1e-2
+  X2C: 'resnet34'

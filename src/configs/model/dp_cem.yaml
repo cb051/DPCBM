@@ -1,0 +1,20 @@
+model_name: 'DP CEM'
+train_private: True # [True,False]
+
+logging:
+  log_local: True # if false, no logging
+  base_path: 'models/checkpoints/CEM'
+  ckpt_path: 'dp_cem'
+
+
+model_args:
+  concept_loss_weight: 1
+  task_loss_weight: 1
+  lr: 1e-2
+  c_extractor_arch: 'resnet34' # defined as in Zarlenga et al.
+  latent_emb_size: 16
+
+privacy_args:
+  epsilon: 1.0 # set explictly when running experiments / training
+  delta: 1e-5 # generally small enough for all datsets used
+  max_grad_norm: 1.2

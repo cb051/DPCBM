@@ -1,0 +1,4 @@
+dataset_name: 'mnist'
+num_concepts: 7
+num_classes: 10
+epochs: 100

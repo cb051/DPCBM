@@ -1,0 +1,4 @@
+dataset_name: 'awa2'
+num_concepts: 85
+num_classes: 50
+epochs: 200
