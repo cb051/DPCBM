@@ -13,11 +13,7 @@
 
 module load python/anaconda-3.14
 source /share/apps/python/anaconda-3.14/etc/profile.d/conda.sh 
-conda activate CEM_env
+conda activate cem_prod
 
 python3 models/cbm.py
-python3 models/cem.py
-
-##python3 /home/cb051/research/DP_XAI/code/experiments/scbm_cem_implementation.py
-
-##srun -N1 -n1 -c64 -p agpu06 -q gpu -t 06:00:00 --pty $SHELL
+## python3 models/cem.py

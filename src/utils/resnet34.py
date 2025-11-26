@@ -3,7 +3,6 @@ import torch.nn as nn
 
 from typing import Callable, Optional
 
-
 from torchvision.models import resnet34
 from torchvision.models.resnet import ResNet, BasicBlock
 
@@ -136,3 +135,20 @@ def resnet34_generator_model(output_dim):
         param.requires_grad = False
 
     return nn.Sequential(backbone, head)
+
+# def resnet34_generator_model(output_dim):  
+#     # https://colab.research.google.com/drive/18GRMyixn43T_lHF6ZheoAJn4-J8L3LAL#scrollTo=HESocROn1dey
+#     # https://discuss.pytorch.org/t/how-can-i-replace-the-forward-method-of-a-predefined-torchvision-model-with-my-customized-forward-function/54224/6
+#     if output_dim is None:
+#         output_dim = 16 
+#     model = MyResnet34()
+#     model.load_state_dict(resnet34(weights="IMAGENET1K_V1").state_dict())
+#     model = ModuleValidator.fix(model) # switch BN to GN
+#     replace_relu_inplace(model) # switch inplace to False
+
+#     resnet_modules = list(model.children())
+#     model = nn.Sequential(*resnet_modules[:-1],
+#                           nn.Flatten(),
+#                           nn.Linear(512,output_dim)) # the last part of resnet model (the part we're training)
+
+#     return nn.Sequential(model)
