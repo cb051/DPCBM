@@ -1,12 +1,53 @@
 seed: 42
-num_workers: 16
-batch_size: 128
+num_workers: 12
 
-one_epoch_run: True # a sanity check [True,False]
+one_epoch_run: False # a sanity check [True,False]
 accelerator: 'gpu' # whether to use gpu, cpu in lightning
 devices: 1 # number of gpus the local machine has
 
 train: True # [True,False]
 test: False # [True,False]
 
-ckpt: None # run a saved checkpoint when Test = True
+# note: dataset and model arg should match saved model
+ckpt_path: "" # run a saved checkpoint when Test = True
+
+# paths
+# CUB200
+
+# cbm (cub)                | "models/checkpoints/CBM/cbm_ckpts_cub200/lightning_logs/version_4/checkpoints/epoch-199.ckpt"
+# cbm dp e=1 (cub)         | ""
+# cbm dp e=1 w SO  (cub)   | ""
+# cbm dp e=1 w OGC (cub)   | ""
+
+# cem (cub)                | "models/checkpoints/CEM/cem_ckpts_cub200/lightning_logs/version_3/checkpoints/epoch-199.ckpt"
+# cem dp e=1 (cub)         | "models/checkpoints/CEM/dp_cem_cub200_e1.0/lightning_logs/version_1/checkpoints/epoch-199.ckpt"
+# cem dp e=1 w SO (cub)    | "models/checkpoints/CEM/dp_cem_cub200_e1.0_orthog_loss/lightning_logs/version_9/checkpoints/epoch-199.ckpt"
+# cem dp e=1 w OGC (cub)   | ""
+
+# ---
+# AWA2
+
+# cbm (awa2)               | "models/checkpoints/CBM/cbm_ckpts_awa2/lightning_logs/version_4/checkpoints/epoch-50.ckpt"
+# * cbm dp e=1 (awa2)        | ""
+# * cbm dp e=1 w SO(awa2)    | ""
+# * cbm dp e=1 w OGC (cub)   | ""
+
+# * cem (awa2)               | ""
+# * cem dp e=1 (awa2)        | ""
+# * cem dp e=1 w SO (awa2)   | ""
+# * cem dp e=1 w OGC (cub)   | ""
+
+# ---
+# MNIST
+
+# cbm (mnist)              | "models/checkpoints/CBM/cbm_ckpts_mnist/lightning_logs/version_2/checkpoints/epoch-50.ckpt"
+# cbm dp e=1 (mnist)       | "models/checkpoints/CBM/dp_cbm_ckpts_mnist_e1.0/lightning_logs/version_2/checkpoints/epoch-50.ckpt"
+# * cbm dp e=1 w SO(mnist)   | "models/checkpoints/CBM/dp_cbm_ckpts_mnist_e1.0_orthog_loss/lightning_logs/version_2"
+# cbm dp e=1 w OGC (mnist) | ""
+
+# * cem (mnist)              | "models/checkpoints/CEM/cem_ckpts_mnist/lightning_logs/version_9/checkpoints/epochh-40.ckpt"
+# * cem dp e=1 (mnist)       | "models/checkpoints/CEM/dp_cem_mnist_e1.0/lightning_logs/version_0/checkpoints/"
+# * cem dp e=1 w SO (mnist)  | "models/checkpoints/CEM/dp_cem_mnist_e1.0_orthog_loss/lightning_logs/version_2/checkpoints/epoch-30.ckpt"
+# cbm dp e=1 w OGC (mnist)   | "models/checkpoints/CEM/dp_cem_mnist_e1.0/lightning_logs/version_1/checkpoints/epoch-10.ckpt"
+
+

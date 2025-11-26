@@ -1,15 +1,14 @@
 model_name: 'CEM'
-embedding_size: 16
-
+train_private: False
 
 logging:
   log_local: True # if false, use wandb
-  local_path:r'~/research/DP_XAI/code/model_checkpoints/CEM' # local path to save checkpoints
+  local_path: 'models/checkpoints/CEM' # local path to save checkpoints
   ckpt_path_name: 'cem_ckpts' # this folder is where CEM checkpoints are saved appended with name of dataset
 
 model_args:
   concept_loss_weight: 1
   task_loss_weight: 1
   latent_emb_size: 16
-  lr: 1e-2
-  X2C: 'resnet34'
+  lr: 1e-3
+  c_extractor_arch: 'resnet34' # analagous to X2C in 
