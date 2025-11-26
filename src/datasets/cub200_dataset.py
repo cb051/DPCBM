@@ -5,7 +5,7 @@ import torchvision.transforms as t
 
 from torchvision import transforms
 import pandas as pd
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import Dataset, DataLoader, WeightedRandomSampler
 import os
 import urllib
 import tarfile
@@ -902,6 +902,24 @@ def load_data(
     else:
         drop_last = False
         shuffle = False
-    loader = DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, drop_last=drop_last, num_workers=num_workers)
+
+    if resampling:
+        labels = [data['class_label'] for data in dataset.data]
+        class_counts = np.bincount(np.array(labels))
+        probs = 1.0 / torch.tensor(class_counts, dtype=torch.float)
+        weights = torch.tensor([probs[label] for label in labels], dtype=torch.float)
+        sampler = WeightedRandomSampler(weights,num_samples=len(dataset),replacement=True)
+        loader = DataLoader(dataset, 
+                            batch_size=batch_size, 
+                            shuffle=False, 
+                            drop_last=drop_last, 
+                            num_workers=num_workers,
+                            sampler=sampler)
+    else:
+        loader = DataLoader(dataset, 
+                            batch_size=batch_size, 
+                            shuffle=shuffle, 
+                            drop_last=drop_last, 
+                            num_workers=num_workers)
 
     return loader

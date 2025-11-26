@@ -5,7 +5,7 @@ import torchvision.transforms as t
 import torchvision.datasets as tv_data
 
 import pandas as pd
-from torch.utils.data import DataLoader, random_split
+from torch.utils.data import DataLoader, random_split, WeightedRandomSampler
 import os
 import urllib
 import zipfile
@@ -115,6 +115,8 @@ def get_dataloaders(batch_size, NDW=16):
                                     t.ToTensor(), #implicitly divides by 255
                                     t.Normalize(mean = [0.5, 0.5, 0.5], std = [.2, .2, .2])
                         ])
+    
+
 
     ds = AWA2(
                     root,
@@ -124,11 +126,24 @@ def get_dataloaders(batch_size, NDW=16):
                     is_valid_file=None,
                 )
     train_ds, val_ds = random_split(ds,[0.8,0.2])
+
+    # random sampler
+    labels = [train_ds.dataset.img_paths[idx][1] for idx in train_ds.indices]
+    class_counts = np.bincount(np.array(labels))
+    probs = 1.0 / torch.tensor(class_counts, dtype=torch.float)
+    weights = torch.tensor([probs[label] for label in labels], dtype=torch.float)
+    train_sampler = WeightedRandomSampler(weights,num_samples=len(train_ds),replacement=True)
     
     train_dl = DataLoader(train_ds,
                         batch_size,
-                        num_workers=NDW)
+                        num_workers=NDW,
+                        shuffle=False,
+                        sampler=train_sampler)
     val_dl = DataLoader(val_ds,
                         batch_size,
-                        num_workers=NDW)
+                        num_workers=NDW,
+                        shuffle=False)
     return train_dl, val_dl
+
+
+
