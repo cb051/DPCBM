@@ -6,7 +6,7 @@ In sensitive domains, where privacy-preservation and model interpretability are 
 
 The effects of noise has only been narrowly considered for concept-based models, mainly in the context of noisy or corrupted inputs. The impact of differentially private noise has, however, been considered for feature-based and inherently interpretable systems. We consider a separate case post-hoc explanations are provided using latent features as opposed to end task predictions. 
 
-We provide fine-grained analysis of the effect of gaussian noise on Concept Learning Models; Namely, we show that a collapse in concept quality can occur even under very small amounts of noise and leads to concept leakage and show that improving orthogonal regularization in convolutional layers is a strong direction for improving the utility of private models and mitigating disparate impact by DP SGD.
+We provide fine-grained analysis of the effect of gaussian noise on Concept Learning Models and show that a collapse in concept quality can occur even under very small amounts of noise and lead to concept leakage. We also show that improving orthogonal regularization in convolutional layers is a strong direction for improving the utility of private models and mitigating disparate impact by DP SGD.
 
 ### Usage
 
