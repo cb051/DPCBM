@@ -2,7 +2,7 @@
 Code for private Concept Learning of Concept Bottleneck Models and Concept Embedding Models with Differential Privacy
 
 ### Motivations
-In sensitive domains, where privacy-preservation and model interpretability are desirable, we intuit that differentially private noise will degrade the quality of explanations. As the concepts in CLMs are based on latent features, they are susceptible to ``concept leakage" where a concept behaves purely as a hidden layer bottleneck. This reference to leakage is different from privacy leakage in that concept leakage occurs when the concept set prioritizes end task prediction over linearly separable concepts. We refer exclusively to concept leakage throughout this work as leakage.
+In sensitive domains, where privacy-preservation and model interpretability are desirable, we intuit that differentially private noise will degrade the quality of explanations. As the concepts in CLMs are based on latent features, they are susceptible to "concept leakage" where a concept behaves purely as a hidden layer bottleneck. This reference to leakage is different from privacy leakage in that concept leakage occurs when the concept set prioritizes end task prediction over linearly separable concepts. We refer exclusively to concept leakage throughout this work as leakage.
 
 The effects of noise has only been narrowly considered for concept-based models, mainly in the context of noisy or corrupted inputs. The impact of differentially private noise has, however, been considered for feature-based and inherently interpretable systems. We consider a separate case post-hoc explanations are provided using latent features as opposed to end task predictions. 
 
