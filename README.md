@@ -13,13 +13,11 @@ We provide fine-grained analysis of the effect of gaussian noise on Concept Lear
 #### To train
 ```
 python3 train.py +data='cub' +model='cbm'
-
-where +data is {'cub', 'awa2', 'mnist'} and +model is {'cbm','cem'}
 ```
+where +data is {'cub', 'awa2', 'mnist'} and +model is {'cbm','cem'}
 
 #### To Test
 ```
 python3 test.py +data='cub' +model='cbm'
-
-where +data is {'cub', 'awa2', 'mnist'} and +model is {'cbm','cem'}
 ```
+where +data is {'cub', 'awa2', 'mnist'} and +model is {'cbm','cem'}
